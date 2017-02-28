@@ -21,11 +21,9 @@ position(SQUARE,0,X,Y):-
 	SQUARE!=A_POSITIONED_SQUARE,						%%%%	2.1)esiste una figura2 != figura1...
 	positioned_edge(A_POSITIONED_SQUARE , EDGE), 				%%%%	2.2)con un lato posizionato...
 	not edge_taken_by_other(A_POSITIONED_SQUARE,EDGE, SQUARE),		%%%%	2.3)libero...
-	position(A_POSITIONED_SQUARE, EDGE, X, Y).				%%%%	2.4)con posizione X,Y.
-
-
-
-
+	position(A_POSITIONED_SQUARE, EDGE, X, Y),				%%%%	2.4)con posizione X,Y.
+	not position_elsewhere(SQUARE,0,X,Y)
+.
 
 %%%%posiziono il vertice 1 in X1, Y1 di una figura1 se: 1)il lato 0 della figura non è già posizionato 2) il vertice 1 è posizionato 3).....
 position(SQUARE, 1, X1, Y1):-
@@ -34,8 +32,21 @@ position(SQUARE, 1, X1, Y1):-
 	position(SQUARE,0,X0,Y0),						%%%%	2) il vertice 0 è posizionato
 	SQUARE!=A_POSITIONED_SQUARE,						%%%%	3)esiste una figura F2 != F1...
 	position(A_POSITIONED_SQUARE, EDGE, X0, Y0),				%%%%	3.1)con un vertice con la stessa posizione del vertice 0 di F1...
-	position(A_POSITIONED_SQUARE, (EDGE + 1) mod 4, X1, Y1).		%%%%	3.2)prendo la posizione X1,Y1 di EDGE->successore
+	position(A_POSITIONED_SQUARE, (EDGE + 1) mod 4, X1, Y1),		%%%%	3.2)prendo la posizione X1,Y1 di EDGE->successore
+	not position_elsewhere(SQUARE,1,X1,Y1)
+.
 
+
+
+position_elsewhere(SQUARE,V,X,Y):-
+	square(SQUARE), range(X;Y;X1;Y1),square_vertex_idxs(V),
+	position(SQUARE, V , X1, Y1),
+	X!=X1.
+
+position_elsewhere(SQUARE,V,X,Y):-
+	square(SQUARE), range(X;Y;X1;Y1),square_vertex_idxs(V),
+	position(SQUARE, V , X1, Y1),
+	Y!=Y1.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,6 +156,7 @@ center(10/2).
 unit(1).
 
 
+#hide position_elsewhere(SQUARE,V,X,Y).
 #hide edge_taken_by_other(SQUARE,SQUARE_EDGE,OTHER_SQUARE).
 #hide positioned_zero_edge_elsewhere(F1,F2, E_F2).
 #show positioned_edge(SQUARE,SQUARE_EDGE).
