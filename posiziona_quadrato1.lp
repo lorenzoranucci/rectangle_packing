@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%GENERAL%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-position(vertex(0,square(0)),coord(CENTER,CENTER)):- center(CENTER), square(0). 
+position(vertex(0,square(0)), coord(CENTER,CENTER)):- center(CENTER), square(0), coord(CENTER,CENTER). 
 %position(vertex(0,triangle(0)),coord(CENTER,CENTER)):- center(CENTER), triangle(0). 
 
 
@@ -7,7 +7,7 @@ position(vertex(0,square(0)),coord(CENTER,CENTER)):- center(CENTER), square(0).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%SQUARE%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 
-square_vertex_idxs(0..3).
+square_vertex_idxs(0..3). 
 %%%%init square vertices
 vertex(VERTEX_IDX, square(SQUARE_IDX) ):- square(SQUARE_IDX), square_vertex_idxs(VERTEX_IDX).
 
@@ -76,7 +76,13 @@ position(vertex(VERTEX_IDX,square(I)), coord(X, Y-UNIT)):-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INPUT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-square(0).
+square(0).%square(1).position(vertex(0,square(1)),coord(10,10)).
 center(20/2).
 coord(0..20,0..20).
 unit(2).
+
+#hide coord(X,Y).
+#hide vertex(X,Y).
+#hide square_vertex_idxs(X).
+#hide unit(X).
+#hide center(X).
