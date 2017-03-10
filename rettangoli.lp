@@ -16,7 +16,7 @@ vertex(0,3,N/2,N/2+H):-rect(0, B, H), size(N).
 
 
 %%%%Describe perimeter point
-#hide perimeterPoint(R, X, Ya).
+%hide perimeterPoint(R, X, Ya).
 perimeterPoint(R, X, Ya):- rect(R, B, H), range(X;Xa;Ya;Xb),vertexIndex(Va;Vb),
 	vertex(R,Va,Xa,Ya),
 	vertex(R,Vb,Xb,Ya),
@@ -31,7 +31,7 @@ perimeterPoint(R, Xa, Y):- rect(R, B, H), range(Y;Xa;Ya;Yb),vertexIndex(Va;Vb),
 	Y<=Yb.
 
 %%%%Describe area point	
-#hide areaPoint(R, X, Ya).
+%hide areaPoint(R, X, Ya).
 areaPoint(R, X, Ya):- rect(R, B, H), range(X;Xa;Ya;Xb),
 	perimeterPoint(R,Xa,Ya),
 	perimeterPoint(R,Xb,Ya),
@@ -144,3 +144,23 @@ vertexElsewhere(R,V,X,Y):- rect(R,B,H), vertexIndex(V), range(X;Y;X1;Y1),
 vertexElsewhere(R,V,X,Y):- rect(R,B,H), vertexIndex(V), range(X;Y;X1;Y1),
 	vertex(R,V,X1,Y1),
 	Y!=Y1.
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Answers filtering%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+:-rect(Ra,Ba,Ha),rect(Rb,Bb,Hb), range(X;Y), Ra!=Rb,
+	areaPoint(Ra,X,Y), areaPoint(Rb,X,Y), 
+	areaPoint(Ra,X+1,Y), areaPoint(Rb,X+1,Y),
+	areaPoint(Ra,X,Y+1), areaPoint(Rb,X,Y+1),
+	areaPoint(Ra,X+1,Y+1), areaPoint(Rb,X+1,Y+1).
+
+
+
+
+
