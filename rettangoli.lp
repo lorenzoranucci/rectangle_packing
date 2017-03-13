@@ -1,5 +1,6 @@
 rect(0,b0,h0). 
 rect(1,b1,h1). 
+rect(2,b2,h2).
 
 size(n).
 range(0..n).
@@ -16,7 +17,7 @@ vertex(0,3,N/2,N/2+H):-rect(0, B, H), size(N).
 
 
 %%%%Describe perimeter point
-%hide perimeterPoint(R, X, Ya).
+#hide perimeterPoint(R, X, Ya).
 perimeterPoint(R, X, Ya):- rect(R, B, H), range(X;Xa;Ya;Xb),vertexIndex(Va;Vb),
 	vertex(R,Va,Xa,Ya),
 	vertex(R,Vb,Xb,Ya),
@@ -31,7 +32,7 @@ perimeterPoint(R, Xa, Y):- rect(R, B, H), range(Y;Xa;Ya;Yb),vertexIndex(Va;Vb),
 	Y<=Yb.
 
 %%%%Describe area point	
-%hide areaPoint(R, X, Ya).
+#hide areaPoint(R, X, Ya).
 areaPoint(R, X, Ya):- rect(R, B, H), range(X;Xa;Ya;Xb),
 	perimeterPoint(R,Xa,Ya),
 	perimeterPoint(R,Xb,Ya),
@@ -159,6 +160,12 @@ vertexElsewhere(R,V,X,Y):- rect(R,B,H), vertexIndex(V), range(X;Y;X1;Y1),
 	areaPoint(Ra,X+1,Y), areaPoint(Rb,X+1,Y),
 	areaPoint(Ra,X,Y+1), areaPoint(Rb,X,Y+1),
 	areaPoint(Ra,X+1,Y+1), areaPoint(Rb,X+1,Y+1).
+
+
+#hide commonPerimeterPoint(R1,R2,X,Y).
+commonPerimeterPoint(R1,R2,X,Y):-range(X;Y),rect(R1,B1,H1),rect(R2,B2,H2), R2>R1, perimeterPoint(R1,X,Y), perimeterPoint(R2,X,Y).
+
+maximize{commonPerimeterPoint(R1,R2,X,Y):rect(R1,B1,H1):rect(R2,B2,H2):range(X;Y): R1<R2}.
 
 
 
