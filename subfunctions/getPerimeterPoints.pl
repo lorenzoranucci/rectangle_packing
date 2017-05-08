@@ -1,8 +1,20 @@
 %[getPerimeterPoints].
 %getPerimeterPoints(rect(R,vertex(0,5,0),vertex(1,7,0),vertex(2,7,2),vertex(3,5,2), 2, 2)  ,  Result).
+%getAllPerimetersPoints([rect(R,vertex(0,5,0),vertex(1,7,0),vertex(2,7,2),vertex(3,5,2), 2, 2)]  ,  Result).
+%getAllPerimetersPoints([rect(R,vertex(0,5,0),vertex(1,7,0),vertex(2,7,2),vertex(3,5,2), 2, 2),rect(R,vertex(0,5,0),vertex(1,8,0),vertex(2,8,2),vertex(3,5,2), 2, 2)]  ,  Result).
 
 
 
+getAllPerimetersPoints([],[]).
+getAllPerimetersPoints(
+			[rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H) | Rest],
+			[Result|SubResult]
+			
+):-	getPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  Result),
+	getAllPerimetersPoints(Rest,SubResult)
+	
+.
+	
 
 
 
