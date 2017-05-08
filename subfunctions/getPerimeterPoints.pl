@@ -32,7 +32,7 @@ getPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex
 	
 
 
-pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y0), [point(X0,Y0)|Result]).
+pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y0), [point(X0,Y0)|[]]).
 
 pointsBetweenTwoPoints(point(X0,Y0), point(X1,Y0), [point(X0,Y0)|Result]):-	
 	X0#<X1,	
@@ -47,4 +47,7 @@ pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y1), [point(X0,Y0)|Result]):-
 	pointsBetweenTwoPoints(point(X0,NEW_Y0), point(X0,Y1), Result)
 .
 
+concat([],[],[]).
 
+concat([],[X2|L2], [X2|Result]):- concat([],L2,Result).
+concat([X1|L1],[X2|L2], [X1|Result]):- concat(L1,[X2|L2],Result).
