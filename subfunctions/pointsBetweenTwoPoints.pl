@@ -4,7 +4,7 @@
 
 
 
-pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y0), [point(X0,Y0)|Result]).
+pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y0), [point(X0,Y0)|[]]).
 
 pointsBetweenTwoPoints(point(X0,Y0), point(X1,Y0), [point(X0,Y0)|Result]):-	
 	X0#<X1,	
