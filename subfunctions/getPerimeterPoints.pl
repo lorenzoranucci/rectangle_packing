@@ -19,16 +19,15 @@ getAllPerimetersPoints(
 
 
 
-getPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  
-			[	Result1,
-				Result2,
-				Result3,
-				Result4
-			])
+getPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  Result)
 :- 	pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y1), Result1), 
 	pointsBetweenTwoPoints(point(X0,Y0), point(X1,Y0), Result2),
 	pointsBetweenTwoPoints(point(X0,Y1), point(X1,Y1), Result3),
-	pointsBetweenTwoPoints(point(X1,Y0), point(X1,Y1), Result4).
+	pointsBetweenTwoPoints(point(X1,Y0), point(X1,Y1), Result4),
+	concat(Result1,Result2,Res1),
+	concat(Result3,Result4,Res2),
+	concat(Res1,Res2,Result)	
+.
 	
 
 
