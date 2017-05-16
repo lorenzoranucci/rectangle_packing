@@ -1,3 +1,6 @@
+%[posiziona8modi].
+%locateRectInPoint(50,50,rect(R,vertex(0,X0,Y0),vertex(1,X1,Y1),vertex(2,X2,Y2),vertex(3,X3,Y3), 6, 10) , Result).
+
 locateRectInPoint(
 	X,Y,
 	rect(R,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H) ,
