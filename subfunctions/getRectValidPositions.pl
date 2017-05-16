@@ -4,20 +4,14 @@
 :-include('locateRectInPerimeterPoints.pl').
 :-include('checkRectOverlapping.pl').
 :-include('getAreaPoints.pl').
+:-include('removeDuplicates.pl').
 
 
 getRectValidPositions(rect(R,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H), PositionedRects,Result):-
-	X0#=<100,
-	Y0#=<100,
-	X1#=<100,
-	Y1#=<100,
-	X0#>=0,
-	Y0#>=0,
-	X1#>=0,
-	Y1#>=0,
 	getAllAreaPoints(PositionedRects,PositionedAreaPoints),
-	locateRectInPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), PositionedRects, CurrentRectPositionings),
-	getRectValidPositionsAux(CurrentRectPositionings, PositionedAreaPoints,Result)
+	locateRectInPerimeterPoints(rect(R,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H), PositionedRects, CurrentRectPositionings),
+	getRectValidPositionsAux(CurrentRectPositionings, PositionedAreaPoints,SubResult),
+	removeDuplicates(SubResult,Result)
 .
 
 
@@ -29,3 +23,6 @@ getRectValidPositionsAux([rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1)
 	getRectValidPositionsAux(Positionings, PositionedAreaPoints,SubResult3),
 	append(SubResult2,SubResult3,Result)
 .
+
+
+
