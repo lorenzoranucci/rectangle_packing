@@ -1,5 +1,5 @@
-%[getRectValidPositions].
-%getRectValidPositions(rect(1,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), 1, 1), [rect(0,vertex(0,50,50),vertex(1,51,50),vertex(2,51,51),vertex(3,50,51), 1, 1)],Result).
+%[getValidPositionings].
+%getValidPositionings(rect(1,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), 1, 1), [rect(0,vertex(0,50,50),vertex(1,51,50),vertex(2,51,51),vertex(3,50,51), 1, 1)],Result).
 
 :-include('locateRectInPerimeterPoints.pl').
 :-include('getPositionigIfValid.pl').
