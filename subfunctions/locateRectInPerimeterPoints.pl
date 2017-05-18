@@ -1,4 +1,5 @@
 %[locateRectInPerimeterPoints].
+%locateRectInPoint(50,49,rect(0,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1),Result).
 %locateRectInPerimeterPoints(rect(0,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [], Result). 
 %locateRectInPerimeterPoints(rect(1,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(0,vertex(0,10,10),vertex(1,15,10),vertex(2,15,11),vertex(3,10,11), 5, 1)], Result).
 %locateRectInPerimeterPoints(rect(1,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(0,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1)], Result).
@@ -39,7 +40,7 @@ locateRectInPoint(
 		rect(R,vertex(0,X,Y),vertex(1,X1,Y),vertex(2,X1,Y1),vertex(3,X,Y1), B, H),
 		rect(R,vertex(0,X,Y4),vertex(1,X1,Y4),vertex(2,X1,Y),vertex(3,X,Y), B, H),
 		rect(R,vertex(0,X,Y),vertex(1,X2,Y),vertex(2,X2,Y2),vertex(3,X,Y2), B, H),
-		rect(R,vertex(0,X,Y),vertex(1,X2,Y),vertex(2,X2,Y3),vertex(3,X,Y3), B, H),
+		rect(R,vertex(0,X,Y3),vertex(1,X2,Y3),vertex(2,X2,Y),vertex(3,X,Y), B, H),
 
 		rect(R,vertex(0,X3,Y),vertex(1,X,Y),vertex(2,X,Y1),vertex(3,X3,Y1), B, H),
 		rect(R,vertex(0,X3,Y4),vertex(1,X,Y4),vertex(2,X,Y),vertex(3,X3,Y), B, H),
