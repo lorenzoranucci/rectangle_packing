@@ -1,14 +1,23 @@
 %[locateRectInPerimeterPoints].
-%locateRectInPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(R1,vertex(0,10,10),vertex(1,15,10),vertex(2,15,11),vertex(3,10,11), 5, 1)], Result).
-%locateRectInPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(R1,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1)], Result).
-%locateRectInPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(R1,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1),rect(R2,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1)], Result).
+%locateRectInPerimeterPoints(rect(0,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [], Result). 
+%locateRectInPerimeterPoints(rect(1,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(0,vertex(0,10,10),vertex(1,15,10),vertex(2,15,11),vertex(3,10,11), 5, 1)], Result).
+%locateRectInPerimeterPoints(rect(1,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(0,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1)], Result).
+%locateRectInPerimeterPoints(rect(1,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), 1, 1), [rect(0,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1),rect(1,vertex(0,10,10),vertex(1,11,10),vertex(2,11,11),vertex(3,10,11), 1, 1)], Result).
 
 
 
-
+%locate first rect in the center
+locateRectInPerimeterPoints(rect(0,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H), [], [rect(0,vertex(0,X,Y),vertex(1,X1,Y),vertex(2,X1,Y1),vertex(3,X,Y1), B, H)])
+:-
+	X#=1000,
+	Y#=1000,
+	X1 #= X+B,
+	Y1 #= Y+H
+.
 
 locateRectInPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), Positioned, Result)
 :-
+	R#\=0,
 	getAllPerimetersPoints(Positioned,PerimetersPoints),	
 	locateRectInPerimeterPointsAux(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), PerimetersPoints, Result)	
 .
@@ -22,6 +31,7 @@ locateRectInPerimeterPointsAux(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X
 .
 
 
+	
 locateRectInPoint(
 	X,Y,
 	rect(R,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H) ,
