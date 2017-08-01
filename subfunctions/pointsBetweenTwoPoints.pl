@@ -1,8 +1,12 @@
 %[pointsBetweenTwoPoints].    
 %pointsBetweenTwoPoints(point(10,13), point(15,13), Result).
+	%Result = [point(10,13),point(11,13),point(12,13),point(13,13),point(14,13),point(15,13)]
 %pointsBetweenTwoPoints(point(15,13), point(10,13), Result).
+	%Result = [point(10,13),point(11,13),point(12,13),point(13,13),point(14,13),point(15,13)]
 %pointsBetweenTwoPoints(point(10,13), point(10,16), Result).
+	%Result = [point(10,13),point(10,14),point(10,15),point(10,16)]
 %pointsBetweenTwoPoints(point(10,16), point(10,13), Result).
+	%Result = [point(10,13),point(10,14),point(10,15),point(10,16)]
 
 
 %Get all segment's points
