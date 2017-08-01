@@ -8,6 +8,7 @@
 :-include('pointsBetweenTwoPoints.pl').
 
 
+%Get all input list's rects perimeter's points (with duplicates)
 getAllPerimetersPoints([],[]).
 getAllPerimetersPoints(
 			[rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H) | Rest],
@@ -21,7 +22,7 @@ getAllPerimetersPoints(
 
 
 
-
+%Get single rect perimeter's points list
 getPerimeterPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  Result)
 :- 	pointsBetweenTwoPoints(point(X0,Y0), point(X0,Y1), Result1), 
 	pointsBetweenTwoPoints(point(X0,Y0), point(X1,Y0), Result2),
