@@ -17,9 +17,9 @@ getAllAreaPoints([rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(
 	append(SubResult1,SubResult2,Result)
 .
 
-getAreaPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  []):-Y0#>=Y1.
 
 %Get single rect area's points list
+getAreaPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  []):-Y0#>=Y1.
 getAreaPoints(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)  ,  Result)
 :-	
 	NEWX1#=X1-1,
