@@ -1,4 +1,4 @@
-%%%%clingo -c n=10 -c b0=3 -c h0=1 -c b1=2 -c h1=1 -c b2=1 -c h2=1 ../rectangles.lp 0
+%%%%clingo -c n=10 -c b0=3 -c h0=1 -c b1=2 -c h1=1 -c b2=1 -c h2=1 ../rectangles_clingo.lp 0
 #show vertex/4.
 
 rect(0,b0,h0). 
