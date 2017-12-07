@@ -32,7 +32,7 @@ rectPositionings(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3
 
 %True if RectPositionings contains all the possible positioning (including not valid) of "rect" in every PerimeterPoint
 %Base case: rect has no positioning if there aren't already positioned rectangles
-rectPositioningsAux(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), [], []).
+rectPositioningsAux(rect(_,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), _, _), [], []).
 %Recursively place rect in every point 
 rectPositioningsAux(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), [point(W,Z)|PerimetersPoints], RectPositionings)
 :-

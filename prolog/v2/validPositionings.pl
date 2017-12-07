@@ -21,7 +21,7 @@ validPositionings(rect(R,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_)
 %term2 	contains all the area points of the already positioned rectangles
 %term3	contains all the positioned rectangles
 %term4	contains all the valid Postionings in the list at term1. ValidPositionings=[Positioning|_]=[[rect(...)|_]|_]
-validPositioningsAux([], PositioningAreaPoints,PositionedRects,[]).
+validPositioningsAux([], _,_,[]).
 validPositioningsAux([rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H)|TailRectPositionings], PositioningAreaPoints,PositionedRects,ValidPositionings)
 :-
 	%recursive call	

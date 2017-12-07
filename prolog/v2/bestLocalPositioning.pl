@@ -17,7 +17,7 @@ bestLocalPositioning(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vert
 	%locate the current rectangle in every possible way depending on already positioned rectangles
 	validPositionings(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), Positioned, ValidPositionings),
 	%the best local positioning is one of the valid positionings, the one with the highest score	
-	bestLocalPositioningAux(ValidPositionings, Score , BestLocalPositioning)
+	bestLocalPositioningAux(ValidPositionings, _ , BestLocalPositioning)
 .
 
 %Extract positioning with max score from the list of valid positionings
@@ -31,11 +31,11 @@ bestLocalPositioningAux([],0,[]).
 bestLocalPositioningAux([BestLocalPositioning|TailPositionings], ScoreBestLocalPositioning, BestLocalPositioning)
 :-
 	%recursive call, ScoreTailPositioning is the best score in the tail list
-	bestLocalPositioningAux(TailPositionings, ScoreTailPositioning, TailPositioning),
+	bestLocalPositioningAux(TailPositionings, ScoreTailPositioning, _),
 	%head positioning score
 	score(BestLocalPositioning, ScoreBestLocalPositioning),
 	%it's true if head positioning score is more than recursive calls score
-	ScoreBestLocalPositioning#>=ScoreTail
+	ScoreBestLocalPositioning#>=ScoreTailPositioning
 .
 %The positioning in the head has a lower score than at least one of the other positioning in the tail list computed in the recursive calls
 bestLocalPositioningAux([HeadPositioning|TailPositionings], ScoreBestLocalPositioning, BestLocalPositioning)
