@@ -41,15 +41,12 @@ Per qualsiasi altro rettangolo viene per prima cosa posizionato il vertice con i
 
 La regola:
 
-``` :-rect(Ra,Ba,Ha),rect(Rb,Bb,Hb), range(X;Y), Ra!=Rb,
+:-rect(Ra,Ba,Ha),rect(Rb,Bb,Hb), range(X;Y), Ra!=Rb,
+areaPoint(Ra,X,Y), areaPoint(Rb,X,Y),
+areaPoint(Ra,X+1,Y), areaPoint(Rb,X+1,Y),
+areaPoint(Ra,X,Y+1), areaPoint(Rb,X,Y+1),
+areaPoint(Ra,X+1,Y+1), areaPoint(Rb,X+1,Y+1).
 
-        areaPoint(Ra,X,Y), areaPoint(Rb,X,Y),
-
-        areaPoint(Ra,X+1,Y), areaPoint(Rb,X+1,Y),
-
-        areaPoint(Ra,X,Y+1), areaPoint(Rb,X,Y+1),
-
-        areaPoint(Ra,X+1,Y+1), areaPoint(Rb,X+1,Y+1). ```
 
 permette di scartare tutte le soluzioni che hanno rettangoli sovrapposti. La sovrapposizione è presente quando due rettangoli posizionati hanno in comune almeno quattro _areaPoint_ che determinano i vertici di un&#39;unità quadrata della griglia. In parole semplici, due rettangoli sono sovrapposti se hanno un quadrato 1x1 della griglia in comune.
 
