@@ -73,7 +73,7 @@ Lanciando il solver su un laptop con processore i7-4720HQ, quad-core a 2,60 GHz 
 
  
 
-## Implementazione Prolog
+# Implementazione Prolog
 
 Il programma Prolog implementato può essere eseguito dal solver chiedendo un goal del tipo:
 
