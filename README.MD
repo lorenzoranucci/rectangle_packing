@@ -77,7 +77,7 @@ Lanciando il solver su un laptop con processore i7-4720HQ, quad-core a 2,60 GHz 
 
 Il programma Prolog implementato può essere eseguito dal solver chiedendo un goal del tipo:
 
-``` solution([rect(0,vertex(0,\_,\_),vertex(1,\_,\_),vertex(2,\_,\_),vertex(3,\_,\_), 1, 1), rect(1,vertex(0,\_,\_),vertex(1,\_,\_),vertex(2,\_,\_),vertex(3,\_,\_), 1, 1)],Solution). ```
+``` solution([rect(0,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), 1, 1), rect(1,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), 1, 1)],Solution). ```
 
 dove al primo termine abbiamo la lista dei rettangoli da posizionare e al secondo termine la variabile risultato che il solver cerca di valorizzare con una lista di rettangoli analoga a quella passata come input al primo termine, ma con le coordinate variabili dei vertici anch&#39;esse valorizzate.
 
@@ -114,7 +114,7 @@ compilando il file principale del progetto _solution.pl:_
 e facendo la query:
 
 ```
-solution([rect(0,vertex(0,\_,\_),vertex(1,\_,\_),vertex(2,\_,\_),vertex(3,\_,\_),2,2),rect(1,vertex(0,\_,\_),vertex(1,\_,\_),vertex(2,\_,\_),vertex(3,\_,\_),1,1),rect(2,vertex(0,\_,\_),vertex(1,\_,\_),vertex(2,\_,\_),vertex(3,\_,\_), 1, 1)],Solution).
+solution([rect(0,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_),2,2),rect(1,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_),1,1),rect(2,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), 1, 1)],Solution).
 ```
 
 Lanciando il solver su un laptop con processore i7-4720HQ, quad-core a 2,60 GHz e 16 GB di memoria, l&#39;esecuzione termina dopo 2 secondi trovando una soluzione ottima
