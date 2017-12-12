@@ -9,7 +9,7 @@
 
 
 %True if the rectangle with zero index is located in the center (1000,1000)
-rectPositionings(rect(0,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H), [], [rect(0,vertex(0,X,Y),vertex(1,X1,Y),vertex(2,X1,Y1),vertex(3,X,Y1), B, H)])
+rectPositionings(rect(I,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_), B, H), [], [rect(I,vertex(0,X,Y),vertex(1,X1,Y),vertex(2,X1,Y1),vertex(3,X,Y1), B, H)])
 :-
 	X#=1000,
 	Y#=1000,
@@ -18,12 +18,11 @@ rectPositionings(rect(0,vertex(0,_,_),vertex(1,_,_),vertex(2,_,_),vertex(3,_,_),
 .
 
 %True if RectPositionings contains all the possible positioning (including not valid) of "rect" depending on already Positioned rectangles
-rectPositionings(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), Positioned, RectPositionings)
+rectPositionings(rect(R,vertex(0,X0,Y0),vertex(1,X1,Y0),vertex(2,X1,Y1),vertex(3,X0,Y1), B, H), [rect(I,vertex(0,X00,Y00),vertex(1,X11,Y11),vertex(2,X22,Y22),vertex(3,X33,Y33), B2, H2)|Positioned], RectPositionings)
 :-
-	%ingore zero index rectangle	
-	R#\=0,
+	
 	%PositioningPerimeterPoints contains all the perimeter points of the already placed rectangles
-	positioningPerimeterPoints(Positioned, PositioningPerimeterPoints),
+	positioningPerimeterPoints([rect(I,vertex(0,X00,Y00),vertex(1,X11,Y11),vertex(2,X22,Y22),vertex(3,X33,Y33), B2, H2)|Positioned], PositioningPerimeterPoints),
 	%remove duplicates perimeter points	
 	removeDuplicates(PositioningPerimeterPoints, PositioningPerimeterPointsWithNoDuplicates,_),	
 	%place "rect" in every perimeter point	

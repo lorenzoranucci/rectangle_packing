@@ -159,6 +159,7 @@ vertexElsewhere(R,V,X,Y):- rect(R,B,H), vertexIndex(V), range(X;Y;X1;Y1),
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Answers filtering%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Discard answers with rectangle overlapping. There is an overlapping when to rectangles share the same "unit square" (e.g. two rectangles with the following common area points (10,10),(11,10),(10,11),(11,11))
 :-rect(Ra,Ba,Ha),rect(Rb,Bb,Hb), range(X;Y), Ra!=Rb,
 	areaPoint(Ra,X,Y), areaPoint(Rb,X,Y), 
 	areaPoint(Ra,X+1,Y), areaPoint(Rb,X+1,Y),
