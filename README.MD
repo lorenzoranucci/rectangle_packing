@@ -41,11 +41,13 @@ Per qualsiasi altro rettangolo viene per prima cosa posizionato il vertice con i
 
 La regola:
 
+```
 :-rect(Ra,Ba,Ha),rect(Rb,Bb,Hb), range(X;Y), Ra!=Rb,
 areaPoint(Ra,X,Y), areaPoint(Rb,X,Y),
 areaPoint(Ra,X+1,Y), areaPoint(Rb,X+1,Y),
 areaPoint(Ra,X,Y+1), areaPoint(Rb,X,Y+1),
 areaPoint(Ra,X+1,Y+1), areaPoint(Rb,X+1,Y+1).
+```
 
 
 permette di scartare tutte le soluzioni che hanno rettangoli sovrapposti. La sovrapposizione è presente quando due rettangoli posizionati hanno in comune almeno quattro _areaPoint_ che determinano i vertici di un&#39;unità quadrata della griglia. In parole semplici, due rettangoli sono sovrapposti se hanno un quadrato 1x1 della griglia in comune.
@@ -63,7 +65,9 @@ fanno in modo che il solver scelga le soluzioni che massimizzano le coincidenze 
 ##Test
 
 Un test su un input di tre rettangoli di dimensioni 1x1, 2x1 e 3x1 può essere eseguito invocando lparse e smodels nel seguente modo:
+
 ``` lparse -c n=10 -c b0=3 -c h0=1 -c b1=2 -c h1=1 -c b2=1 -c h2=1 rectangles_lparse.lp | smodels 0 ```
+
 Lanciando il solver su un laptop con processore i7-4720HQ, quad-core a 2,60 GHz e 16 GB di memoria, l’esecuzione termina dopo 704 secondi trovando una soluzione ottima rappresentata nell’immagine seguente.
 
 
