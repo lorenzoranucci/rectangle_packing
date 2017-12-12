@@ -62,7 +62,7 @@ e l&#39;istruzione:
 
 fanno in modo che il solver scelga le soluzioni che massimizzano le coincidenze di punti perimetrali dei rettangoli.
 
-##Test
+## Test
 
 Un test su un input di tre rettangoli di dimensioni 1x1, 2x1 e 3x1 può essere eseguito invocando lparse e smodels nel seguente modo:
 
@@ -97,7 +97,7 @@ Differentemente dalla versione ASP del programma, questa implementazione non è 
 
 Andrebbe indagato il motivo per cui l&#39;esecuzione continua indefinitamente senza apparentemente mai terminare per alcuni input.
 
-Test
+## Test
 
 Un test su un input di tre rettangoli di dimensioni 1x1, 1x1 e 2x2 può essere eseguito eseguendo GNU Prolog:
 
