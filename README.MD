@@ -19,9 +19,9 @@ Considerate le precedenti osservazioni è stato progettato un algoritmo che:
 
 1. posiziona il primo rettangolo in maniera arbitraria
 2. sceglie il posizionamento ottimo localmente:
-  1. 1.posiziona tutti i rettangoli rimanenti da posizionare, in ogni punto perimetrale dei rettangoli già posizionati, in ognuno degli otto modi possibili
-  2. 2.scarta i posizionamenti non validi a causa di sovrapposizioni
-  3. 3.sceglie tra tutti i posizionamenti validi generati quello con maggiore sovrapposizione perimetrale
+  1. posiziona tutti i rettangoli rimanenti da posizionare, in ogni punto perimetrale dei rettangoli già posizionati, in ognuno degli otto modi possibili
+  2. scarta i posizionamenti non validi a causa di sovrapposizioni
+  3. sceglie tra tutti i posizionamenti validi generati quello con maggiore sovrapposizione perimetrale
 
 # Implementazione ASP
 
