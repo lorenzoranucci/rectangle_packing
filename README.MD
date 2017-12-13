@@ -5,7 +5,7 @@ Quello del rectangle packing è un problema che riguarda il posizionamento ottim
 
 # Analisi del problema
 
-Il problema è stato affrontato utilizzando due linguaggi di programmazione dichiarativa: Prolog ed ASP. L&#39;idea alla base di entrambe le soluzioni proposte è quella di enumerare tutti i possibili posizionamenti dei rettangoli avvalendosi di semplici euristiche per limitare la generazione di soluzioni.
+Il problema è stato affrontato utilizzando due linguaggi di programmazione dichiarativa: Prolog ed ASP. L’idea alla base di entrambe le soluzioni proposte è quella di enumerare tutti i possibili posizionamenti dei rettangoli avvalendosi di semplici accorgimenti per limitarne la generazione ai soli casi non banali. 
 
 Le osservazioni fatte sono:
 
